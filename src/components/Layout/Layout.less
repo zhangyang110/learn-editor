@@ -1,0 +1,309 @@
+@import "~themes/vars";
+
+.layout {
+  position: relative;
+  height: 100vh;
+
+  &.withnavbar {
+    .main {
+      margin-left: 0;
+    }
+  }
+
+  &.fold {
+    .sider {
+      width: 42px;
+
+      .logo {
+        img {
+          width: 28px;
+          margin: 6px 7px;
+        }
+      }
+
+      :global {
+        .ant-menu-root {
+          width: 100%;
+          overflow: visible;
+
+          & > .ant-menu-item {
+            padding: 0;
+            text-align: center;
+
+            .anticon {
+              font-size: 14px;
+              margin-right: 0;
+            }
+          }
+
+          & > .ant-menu-submenu {
+            & > .ant-menu-submenu-title {
+              padding: 0;
+              text-align: center;
+
+              .anticon {
+                font-size: 14px;
+                margin-right: 0;
+              }
+
+              &::after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .main {
+      margin-left: 42px;
+    }
+  }
+
+  .sider {
+    width: 224px;
+    // background: #fff;
+    position: absolute;
+    overflow: visible;
+    padding-bottom: 24px;
+    height: 100vh;
+    transition: @transition-ease-out;
+    box-shadow: @shadow-1;
+    color: rgb(255, 255, 255);
+
+
+    .siderbar-bg-img {
+      position: absolute;
+      z-index: 0;
+      height: 100%;
+      width: 100%;
+      display: block;
+      top: 0;
+      left: 0;
+      background-size: cover;
+      background-position: center center;
+      opacity: 0.3;
+      transition: all 500ms;
+    }
+
+
+    .logo {
+      text-align: center;
+      height: 40px;
+      line-height: 40px;
+      cursor: pointer;
+      margin: 28px 0;
+      transition: @transition-ease-out;
+      overflow: hidden;
+      background-color: rgba(145, 22, 22, 0);
+
+      img {
+        width: 40px;
+        margin-right: 8px;
+        transition: @transition-ease-out;
+      }
+
+      span {
+        vertical-align: text-bottom;
+        font-size: 16px;
+        text-transform: uppercase;
+        display: inline-block;
+      }
+
+      .anticon {
+        transition: @transition-ease-out;
+      }
+    }
+
+
+
+    :global {
+      .ant-menu-dark,
+      .ant-menu-dark .ant-menu-sub {
+        color: #999;
+      }
+
+      .ant-menu-root {
+        // height: ~"calc(100vh - 144px)";
+        height: 100vh;
+        overflow-x: hidden;
+        border-right: none;
+
+        &::-webkit-scrollbar-thumb {
+          background-color: transparent;
+        }
+
+        &:hover {
+          &::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 0, 0, 0.2);
+          }
+        }
+
+        &.ant-menu-vertical {
+          .ant-menu-sub {
+            height: 0;
+            opacity: 0;
+            transition: none;
+          }
+
+          .ant-menu-submenu-active {
+            .ant-menu-sub {
+              height: auto;
+              opacity: 1;
+            }
+          }
+        }
+      }
+
+      .ant-menu {
+        transition: @transition-ease-out;
+
+        .ant-menu-item,
+        .ant-menu-submenu-title {
+          overflow: hidden;
+          white-space: normal;
+        }
+      }
+    }
+  }
+
+  .main {
+    margin-left: 224px;
+    overflow: auto;
+    height: 100vh;
+    transition: @transition-ease-out;
+
+    :global {
+      .content-inner {
+        background: #fff;
+        padding: 24px;
+        box-shadow: @shadow-1;
+        min-height: e("calc(100vh - 184px)");
+      }
+    }
+
+    .container {
+      margin: 24px;
+    }
+
+    .content {
+      min-height: e("calc(100vh - 184px)");
+      position: relative;
+    }
+  }
+}
+
+
+
+.spin {
+  :global .ant-spin-container {
+    height: 100vh;
+  }
+}
+@media (max-width: 767px) {
+  .layout {
+    .main {
+      .container {
+        margin: 12px;
+      }
+
+      .bread {
+        padding: 0 12px;
+      }
+
+      .content {
+        min-height: e("calc(100vh - 160px)");
+      }
+
+      :global {
+        .content-inner {
+          padding: 12px;
+          min-height: e("calc(100vh - 160px)");
+        }
+      }
+    }
+  }
+}
+
+.siderbar-bg-red {
+  background-color:@theme-sidebar-bgcolor-red;
+  :global {
+    // override
+    .ant-menu-light {
+      background-color: @theme-sidebar-bgcolor-red;
+      .ant-menu-item-selected {
+        color: #fff !important;
+        background-color: color(@theme-sidebar-bgcolor-red, 20) !important;
+        box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(60, 72, 88, 0.4);
+        > a {
+          color: #fff !important;
+        }
+        &::after {
+          border-right: 0 !important;
+        }
+      }
+    }
+  }
+}
+
+  // yellow theme
+  .siderbar-bg-yellow {
+    background-color: @theme-sidebar-bgcolor-yellow;
+    :global {
+      .ant-menu-light {
+        background-color: @theme-sidebar-bgcolor-yellow;
+        .ant-menu-item-selected {
+          color: #fff !important;
+          background-color: @theme-sidebar-bgcolor-yellow !important;
+          box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(60, 72, 88, 0.4);
+          > a {
+            color: #fff !important;
+          }
+          &::after {
+            border-right: 0 !important;
+          }
+        }
+      }
+    }
+  }
+  // black theme
+  .siderbar-bg-black {
+    background-color: @theme-sidebar-bgcolor-black;
+    :global {
+      .ant-menu-light {
+        background-color: @theme-sidebar-bgcolor-black;
+        .ant-menu-item-selected {
+          color: #fff !important;
+          background-color: @theme-sidebar-bgcolor-black !important;
+          box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(60, 72, 88, 0.4);
+          > a {
+            color: #fff !important;
+          }
+          &::after {
+            border-right: 0 !important;
+          }
+        }
+      }
+    }
+  }
+  // blue theme
+  .siderbar-bg-blue {
+    background-color: @theme-sidebar-bgcolor-blue;
+    :global {
+      .ant-menu-light {
+        background-color: @theme-sidebar-bgcolor-blue;
+        .ant-menu-item-selected {
+          color: #fff !important;
+          background-color: @theme-sidebar-bgcolor-blue !important;
+          box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(60, 72, 88, 0.4);
+          > a {
+            color: #fff !important;
+          }
+          &::after {
+            border-right: 0 !important;
+          }
+        }
+      }
+    }
+  }
+
